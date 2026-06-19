@@ -1,0 +1,71 @@
+# ─── Secrets & local config (NEVER commit) ───────────────────────────
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+backend/user_settings.json
+backend/alert_state.json
+*.key
+*.pem
+*.p12
+credentials.json
+token.json
+
+# ─── Personal / runtime data ─────────────────────────────────────────
+backend/data/
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+*.pkl
+
+# ─── Python ──────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+**/.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# ─── Node / frontend / electron ──────────────────────────────────────
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+.vite/
+*.tsbuildinfo
+
+# ─── Electron build output & installers ──────────────────────────────
+electron/dist/
+**/win-unpacked/
+*.exe
+*.blockmap
+*.dmg
+*.AppImage
+
+# ─── WhatsApp service session / auth ─────────────────────────────────
+whatsapp-service/wa-session/
+whatsapp-service/.wwebjs_cache/
+whatsapp-service/.wwebjs_auth/
+**/wa-session/
+**/.wwebjs_cache/
+**/.wwebjs_auth/
+
+# ─── Logs & OS cruft ─────────────────────────────────────────────────
+*.log
+logs/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Editor ──────────────────────────────────────────────────────────
+.idea/
+*.swp
+
+# ─── Claude Code runtime ─────────────────────────────────────────────
+.claude/scheduled_tasks.lock
