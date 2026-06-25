@@ -3,7 +3,7 @@ JARVIS Native Screen Mirror
 Uses WebRTC + iOS Safari getDisplayMedia() — no third-party apps.
 
 Flow:
-  1. iPhone opens https://100.88.129.47:8000/mirror/phone in Safari
+  1. iPhone opens https://<YOUR_TAILSCALE_IP>:8000/mirror/phone in Safari
   2. Taps "Start Mirroring" — iOS asks which screen/app to share
   3. Selects screen — stream begins
   4. JARVIS dashboard at /mirror/view shows the live feed

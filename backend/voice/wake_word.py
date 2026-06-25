@@ -12,10 +12,12 @@ import os
 
 import httpx
 
+from core.config import settings
+
 logger = logging.getLogger("jarvis.wake_word")
 
 BACKEND_URL = "http://localhost:8000"
-API_KEY = "jarvis-local-api-key"
+API_KEY = settings.API_KEY
 # All the ways someone might say "Jarvis" — speech recognition isn't perfect
 WAKE_WORDS = {
     "jarvis",           # plain "Jarvis"

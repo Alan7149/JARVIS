@@ -220,7 +220,7 @@ function SecScanResult({ data }: { data: any }) {
 
 // Repo file-tree browser — click a file to load it into the analysis box
 function TreeBrowser({ onPick }: { onPick: (path: string) => void }) {
-  const [root, setRoot] = useState('D:\\AlanBabusFiles\\Projects\\JARVIS')
+  const [root, setRoot] = useState('')
   const [tree, setTree] = useState<any[] | null>(null)
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState<Record<string, boolean>>({})
@@ -623,8 +623,8 @@ export default function CodeReview() {
                 {/* Quick paths */}
                 <div className="grid grid-cols-1 gap-1">
                   {[
-                    {l:'JARVIS Backend','p':'D:\\AlanBabusFiles\\Projects\\JARVIS\\backend'},
-                    {l:'JARVIS Frontend','p':'D:\\AlanBabusFiles\\Projects\\JARVIS\\frontend\\src'},
+                    {l:'JARVIS Backend','p':'.\\backend'},
+                    {l:'JARVIS Frontend','p':'.\\frontend\\src'},
                   ].map((s,i)=>(
                     <button key={i} onClick={()=>setPath(s.p)}
                       className="text-left px-2 py-1.5 rounded-sm transition-all text-[8px]"

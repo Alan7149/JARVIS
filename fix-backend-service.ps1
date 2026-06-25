@@ -20,7 +20,7 @@ if (-not $isAdmin) {
 }
 
 $svc        = "JARVIS-Backend"
-$backendDir = "D:\AlanBabusFiles\Projects\JARVIS\backend"
+$backendDir = Join-Path $PSScriptRoot "backend"
 $python     = "$backendDir\.venv\Scripts\python.exe"
 $regBase    = "HKLM:\SYSTEM\CurrentControlSet\Services\$svc\Parameters"
 

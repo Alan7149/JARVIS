@@ -1,6 +1,6 @@
 """
 JARVIS iPhone Setup Wizard
-Open https://100.88.129.47:8000/iphone-setup on your iPhone.
+Open https://<YOUR_TAILSCALE_IP>:8000/iphone-setup on your iPhone.
 One-tap setup for all shortcuts, Tailscale, ntfy, everything.
 """
 from pathlib import Path
@@ -8,14 +8,17 @@ from fastapi import APIRouter
 from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
+from core.config import settings
+
 router = APIRouter()
 
-TAILSCALE_IP = "100.88.129.47"
-LOCAL_IP = "192.168.1.140"
+# Configure these in backend/.env (TAILSCALE_IP, LOCAL_IP, API_KEY, NTFY_PUSH_TOPIC)
+TAILSCALE_IP = settings.TAILSCALE_IP or "YOUR_TAILSCALE_IP"
+LOCAL_IP = settings.LOCAL_IP or "YOUR_LOCAL_IP"
 JARVIS_IP = TAILSCALE_IP
-API_KEY = "jarvis-local-api-key"
+API_KEY = settings.API_KEY
 WEBHOOK = f"http://{JARVIS_IP}:8000/api/webhooks/phone"
-NTFY_TOPIC = "jarvis-alan-push-7149"
+NTFY_TOPIC = settings.NTFY_PUSH_TOPIC
 
 SHORTCUTS_DIR = Path(__file__).parent.parent.parent / "static" / "shortcuts"
 
@@ -347,7 +350,7 @@ body {{
       </div>
       <div class="info-row">
         <span class="info-label">API Key</span>
-        <span class="info-value">jarvis-local-api-key</span>
+        <span class="info-value">{API_KEY}</span>
       </div>
       <div id="ts-status-box" style="background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:8px;font-size:9px;color:rgba(0,212,255,.7);margin-top:8px;line-height:1.5">
         ⏳ Checking connection...

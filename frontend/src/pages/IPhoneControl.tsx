@@ -64,8 +64,9 @@ const SHORTCUTS: ShortcutConfig[] = [
   },
 ]
 
-const TAILSCALE_IP = '100.88.129.47'
-const API_KEY = 'jarvis-local-api-key'
+// Configure in frontend/.env (VITE_TAILSCALE_IP, VITE_API_KEY)
+const TAILSCALE_IP = import.meta.env.VITE_TAILSCALE_IP || 'YOUR_TAILSCALE_IP'
+const API_KEY = import.meta.env.VITE_API_KEY || 'change-me-local-key'
 
 export default function IPhoneControl() {
   const { lastMessage, isConnected } = useWebSocket()
@@ -599,7 +600,7 @@ function ScreenMirrorSection({ mirrorStatus, setMirrorStatus }: {
   mirrorStatus: MirrorStatus
   setMirrorStatus: (s: MirrorStatus) => void
 }) {
-  const phoneUrl = `https://100.88.129.47:8000/mirror/phone`
+  const phoneUrl = `https://${TAILSCALE_IP}:8000/mirror/phone`
   const [copied, setCopied] = useState(false)
 
   const copy = () => {
@@ -631,7 +632,7 @@ function ScreenMirrorSection({ mirrorStatus, setMirrorStatus }: {
         position: 'relative',
       }}>
         <iframe
-          src="https://100.88.129.47:8000/mirror/view"
+          src={`https://${TAILSCALE_IP}:8000/mirror/view`}
           style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
           title="JARVIS Screen Mirror"
           allow="camera; microphone; display-capture"

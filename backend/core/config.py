@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     # Security
     SECRET_KEY: str = "change-this-in-production-use-secrets-manager"
-    API_KEY: str = "jarvis-local-api-key"
+    API_KEY: str = "change-me-local-key"  # shared secret for phone webhooks — override in .env
 
     # Database (defaults to SQLite — set to postgresql+asyncpg://... for production)
     DATABASE_URL: str = "sqlite+aiosqlite:///./jarvis.db"
@@ -34,9 +34,9 @@ class Settings(BaseSettings):
     GROQ_MODEL: str = "llama-3.3-70b-versatile"
 
     # CORS
+    # Add your own LAN/Tailscale origins here (or via the ALLOWED_ORIGINS env var)
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:3000",
-        "http://100.88.129.47:5173", "http://100.88.129.47:8000",
     ]
 
     # File indexing
@@ -69,7 +69,11 @@ class Settings(BaseSettings):
     OBSIDIAN_VAULT_PATH: str = ""
 
     # Push notifications (ntfy)
-    NTFY_PUSH_TOPIC: str = "jarvis-push"  # unique topic for your phone
+    NTFY_PUSH_TOPIC: str = "jarvis-push"  # unique topic for your phone — set your own in .env
+
+    # Network addresses for phone access (set your own in .env)
+    TAILSCALE_IP: str = ""   # e.g. 100.x.x.x — your machine's Tailscale IP
+    LOCAL_IP: str = ""       # e.g. 192.168.x.x — your machine's LAN IP
 
     # Wake word
     WAKE_WORD_ENABLED: bool = True

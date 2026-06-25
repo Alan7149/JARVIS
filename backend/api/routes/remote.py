@@ -1,6 +1,6 @@
 """
 JARVIS PC Remote Control
-iPhone opens http://100.88.129.47:8000/remote in Safari
+iPhone opens http://<YOUR_TAILSCALE_IP>:8000/remote in Safari
 Gets live screen stream + touch controls for mouse/keyboard
 """
 import asyncio

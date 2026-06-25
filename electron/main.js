@@ -45,7 +45,6 @@ function findBackendDir() {
   const candidates = [
     path.join(__dirname, '..', 'backend'),                    // dev: electron/../backend
     path.join(process.resourcesPath || __dirname, 'backend'), // bundled
-    'D:\\AlanBabusFiles\\Projects\\JARVIS\\backend',          // known absolute install path
     path.join(require('os').homedir(), 'JARVIS', 'backend'),  // home fallback
   ]
   for (const dir of candidates) {

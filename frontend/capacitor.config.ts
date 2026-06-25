@@ -5,11 +5,11 @@ const config: CapacitorConfig = {
   appName: 'JARVIS',
   webDir: 'dist',
   server: {
-    // When running natively, point to the live JARVIS backend via Tailscale
-    // This means the app always has fresh data without bundling the frontend
-    url: 'https://100.88.129.47:8000',
+    // When running natively, point to the live JARVIS backend via Tailscale/LAN.
+    // Replace YOUR_TAILSCALE_IP with your machine's Tailscale (or LAN) IP.
+    url: 'https://YOUR_TAILSCALE_IP:8000',
     cleartext: true,
-    allowNavigation: ['100.88.129.47', 'localhost'],
+    allowNavigation: ['YOUR_TAILSCALE_IP', 'localhost'],
   },
   ios: {
     contentInset: 'automatic',

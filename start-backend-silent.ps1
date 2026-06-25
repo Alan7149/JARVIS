@@ -1,7 +1,7 @@
 $env:PYTHONPATH = ""
 $env:PYTHONHOME = ""
 
-Set-Location "D:\AlanBabusFiles\Projects\JARVIS\backend"
+Set-Location "$PSScriptRoot\backend"
 
 $restarts = 0
 while ($true) {
@@ -15,8 +15,8 @@ while ($true) {
     if ($restarts -gt 0) { Start-Sleep -Seconds 5 }
     $restarts++
 
-    & "D:\AlanBabusFiles\Projects\JARVIS\backend\.venv\Scripts\python.exe" -m uvicorn main:app --host 0.0.0.0 --port 8000
+    & "$PSScriptRoot\backend\.venv\Scripts\python.exe" -m uvicorn main:app --host 0.0.0.0 --port 8000
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Add-Content "D:\AlanBabusFiles\Projects\JARVIS\backend\logs\restart.log" "$timestamp - Restart #$restarts" -ErrorAction SilentlyContinue
+    Add-Content "$PSScriptRoot\backend\logs\restart.log" "$timestamp - Restart #$restarts" -ErrorAction SilentlyContinue
 }

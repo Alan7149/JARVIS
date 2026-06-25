@@ -17,7 +17,7 @@
 ### 1. First-time setup
 
 ```powershell
-# From D:\AlanBabusFiles\Projects\JARVIS
+# From the JARVIS project root (where you cloned it)
 .\setup.ps1
 ```
 
@@ -28,7 +28,7 @@ Edit `backend\.env`:
 ```env
 ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 API_KEY=choose-a-secure-key-for-phone-webhooks
-INDEX_PATHS=["D:\\AlanBabusFiles\\Projects"]
+INDEX_PATHS=["C:\\path\\to\\your\\projects"]
 ```
 
 ### 3. Create the database

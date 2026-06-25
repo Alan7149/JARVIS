@@ -11,9 +11,9 @@ const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js')
 const qrcode = require('qrcode-terminal')
 const http = require('http')
 
-const PORT = 3001
-const JARVIS_BACKEND = 'http://localhost:8000'
-const JARVIS_API_KEY = 'jarvis-local-api-key'
+const PORT = process.env.PORT || 3001
+const JARVIS_BACKEND = process.env.JARVIS_BACKEND || 'http://localhost:8000'
+const JARVIS_API_KEY = process.env.JARVIS_API_KEY || 'change-me-local-key'
 
 let client = null
 let isReady = false

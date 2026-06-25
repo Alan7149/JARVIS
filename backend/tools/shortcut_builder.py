@@ -7,10 +7,13 @@ import plistlib
 import uuid
 from pathlib import Path
 
-TAILSCALE_IP = "100.88.129.47"
-LOCAL_IP = "192.168.1.140"
+from core.config import settings
+
+# Configure these in backend/.env (TAILSCALE_IP, LOCAL_IP, API_KEY)
+TAILSCALE_IP = settings.TAILSCALE_IP or "YOUR_TAILSCALE_IP"
+LOCAL_IP = settings.LOCAL_IP or "YOUR_LOCAL_IP"
 JARVIS_IP = TAILSCALE_IP  # Primary — Tailscale works everywhere
-API_KEY = "jarvis-local-api-key"
+API_KEY = settings.API_KEY
 WEBHOOK = f"http://{JARVIS_IP}:8000/api/webhooks/phone"
 WEBHOOK_LOCAL = f"http://{LOCAL_IP}:8000/api/webhooks/phone"
 

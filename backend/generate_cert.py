@@ -13,11 +13,12 @@ CERT_DIR.mkdir(exist_ok=True)
 CERT_PATH = CERT_DIR / "jarvis.crt"
 KEY_PATH  = CERT_DIR / "jarvis.key"
 
-# IPs this cert is valid for
-IPS = [
-    "100.88.129.47",   # Tailscale
-    "192.168.1.140",   # Local WiFi
-    "127.0.0.1",
+# IPs this cert is valid for. Add your own Tailscale / LAN IPs via the
+# JARVIS_CERT_IPS env var (comma-separated), e.g. "100.x.x.x,192.168.x.x".
+import os
+
+IPS = ["127.0.0.1"] + [
+    ip.strip() for ip in os.getenv("JARVIS_CERT_IPS", "").split(",") if ip.strip()
 ]
 
 

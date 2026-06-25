@@ -68,7 +68,7 @@
 				<key>UUID</key>
 				<string>30D6C22E-4F0B-4F26-8E3A-ABA03EE2142F</string>
 				<key>WFURLActionURL</key>
-				<string>http://100.88.129.47:8000/api/webhooks/phone</string>
+				<string>http://YOUR_TAILSCALE_IP:8000/api/webhooks/phone</string>
 			</dict>
 		</dict>
 		<dict>
@@ -106,7 +106,7 @@
 									<key>Value</key>
 									<dict>
 										<key>string</key>
-										<string>jarvis-local-api-key</string>
+										<string>change-me-local-key</string>
 									</dict>
 									<key>WFSerializationType</key>
 									<string>WFTextTokenString</string>

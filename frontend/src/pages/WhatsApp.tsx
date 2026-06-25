@@ -92,7 +92,7 @@ export default function WhatsAppPage() {
             <div className="space-y-3">
               <p className="text-[11px] text-jarvis-muted">{status.error}</p>
               <div className="px-3 py-2 rounded-sm text-[10px] font-mono" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(0,212,255,0.2)', color: '#00d4ff' }}>
-                cd D:\AlanBabusFiles\Projects\JARVIS<br/>
+                cd path\to\JARVIS<br/>
                 .\start-whatsapp.ps1
               </div>
               <p className="text-[10px] text-jarvis-muted">Run the command above in a terminal, then scan the QR code with your iPhone WhatsApp → Linked Devices → Link a Device</p>
